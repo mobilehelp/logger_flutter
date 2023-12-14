@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:sensors/sensors.dart';
+import 'package:sensors_plus/sensors_plus.dart';
 
 class ShakeDetector {
   final VoidCallback? onPhoneShake;
@@ -32,7 +32,7 @@ class ShakeDetector {
 
   /// Starts listening to accerelometer events
   void startListening() {
-    streamSubscription = accelerometerEvents.listen((event) {
+    streamSubscription = accelerometerEventStream().listen((event) {
       var gX = event.x / 9.81;
       var gY = event.y / 9.81;
       var gZ = event.z / 9.81;
