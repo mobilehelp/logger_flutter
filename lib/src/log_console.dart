@@ -56,7 +56,7 @@ class _LogConsoleState extends State<LogConsole> {
   var _scrollController = ScrollController();
   var _filterController = TextEditingController();
 
-  Level? _filterLevel = Level.verbose;
+  Level? _filterLevel = Level.trace;
   double _logFontSize = 14;
 
   var _currentId = 0;
@@ -116,11 +116,15 @@ class _LogConsoleState extends State<LogConsole> {
       theme: widget.dark
           ? ThemeData(
               brightness: Brightness.dark,
-              accentColor: Colors.blueGrey,
+              colorScheme: ColorScheme.dark(
+                secondary: Colors.blueGrey,
+              ),
             )
           : ThemeData(
               brightness: Brightness.light,
-              accentColor: Colors.lightBlueAccent,
+              colorScheme: ColorScheme.light(
+                secondary: Colors.lightBlueAccent,
+              ),
             ),
       home: Scaffold(
         body: SafeArea(
@@ -268,8 +272,8 @@ class _LogConsoleState extends State<LogConsole> {
             value: _filterLevel,
             items: [
               DropdownMenuItem(
-                child: Text("VERBOSE"),
-                value: Level.verbose,
+                child: Text("TRACE"),
+                value: Level.trace,
               ),
               DropdownMenuItem(
                 child: Text("DEBUG"),
@@ -288,8 +292,8 @@ class _LogConsoleState extends State<LogConsole> {
                 value: Level.error,
               ),
               DropdownMenuItem(
-                child: Text("WTF"),
-                value: Level.wtf,
+                child: Text("FATAL"),
+                value: Level.fatal,
               )
             ],
             onChanged: (dynamic value) {
