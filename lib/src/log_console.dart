@@ -272,7 +272,7 @@ class _LogConsoleState extends State<LogConsole> {
             value: _filterLevel,
             items: [
               DropdownMenuItem(
-                child: Text("VERBOSE"),
+                child: Text("TRACE"),
                 value: Level.trace,
               ),
               DropdownMenuItem(
@@ -292,7 +292,7 @@ class _LogConsoleState extends State<LogConsole> {
                 value: Level.error,
               ),
               DropdownMenuItem(
-                child: Text("WTF"),
+                child: Text("FATAL"),
                 value: Level.fatal,
               )
             ],
