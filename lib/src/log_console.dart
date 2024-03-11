@@ -128,19 +128,15 @@ class _LogConsoleState extends State<LogConsole> {
             ),
       home: Scaffold(
         body: SafeArea(
-          child: TextButton(
-            onPressed: () =>
-                Clipboard.setData(ClipboardData(text: logs.toString())),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                _buildTopBar(),
-                Expanded(
-                  child: _buildLogContent(),
-                ),
-                _buildBottomBar(),
-              ],
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              _buildTopBar(),
+              Expanded(
+                child: _buildLogContent(),
+              ),
+              _buildBottomBar(),
+            ],
           ),
         ),
         floatingActionButton: AnimatedOpacity(
